@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Getting Started: Simple Form</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<form action="#" th:action="@{/dashboard}" th:object="${data}" method="post">
+  <p>Input 1: <input type="text" th:field="*{inputArithmetic}"/>
+  </p>
+  <p>Input 2: <input type="number" th:field="*{inputN}"/>
+  </p>
+  <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+  <div class="form-group">
+    <div id="textBox"></div>
+  </div>
+</form>
+</body>
+</html>
