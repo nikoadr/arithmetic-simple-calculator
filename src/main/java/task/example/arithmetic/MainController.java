@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 
@@ -23,7 +24,7 @@ public class MainController {
     @PostMapping("/dashboard")
     public String postInput(@ModelAttribute Params params, Model model) throws NumberFormatException {
         Integer result1              = null;
-        Integer result2              = null;
+        BigDecimal result2              = null;
         Result result                = new Result();
         Integer nSixth               = 6;
         Integer nTh                  = params.getInputN();
@@ -47,7 +48,7 @@ public class MainController {
                 result1 = a +(nSixth-1)*d;
                 result.setResult1(result1);
                 if(nTh != null){
-                    result2 = a +(nTh-1)*d;
+                    result2 = BigDecimal.valueOf(a +(nTh-1)*d);
                     result.setResult2(result2);
                 }
             }else if(checkQuadratic(inputInt)){
@@ -129,7 +130,7 @@ public class MainController {
 
         result.setResult1((2*(nSixth*nSixth))+(commonDiff2*nSixth-(commonDiff2-d.get(1))));
         if(inputN != null){
-            result.setResult2((2*(inputN*inputN))+(commonDiff2*inputN-(commonDiff2-d.get(1))));
+            result.setResult2(BigDecimal.valueOf((2*(inputN*inputN))+(commonDiff2*inputN-(commonDiff2-d.get(1)))));
         }
     }
     public void processQubicSeq(ArrayList<Integer> arrInt,Result result,Integer inputN){
@@ -155,7 +156,7 @@ public class MainController {
         int nSixth = a * (6*6*6) + b*(6*6) + c*6 + d;
         int nTh    = a * (inputN * inputN * inputN) + b*(inputN*inputN) + c*inputN + d;
         result.setResult1(nSixth);
-        result.setResult2(nTh);
+        result.setResult2(BigDecimal.valueOf(nTh));
     }
 
     public ArrayList<Integer> findDiff(ArrayList<Integer> arrayList){

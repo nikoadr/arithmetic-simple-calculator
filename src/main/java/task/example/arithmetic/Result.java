@@ -1,8 +1,10 @@
 package task.example.arithmetic;
 
+import java.math.BigDecimal;
+
 public class Result {
     private Integer result1;
-    private Integer result2;
+    private BigDecimal result2;
     private Integer nTh;
 
     public Integer getResult1(){
@@ -12,10 +14,10 @@ public class Result {
         this.result1 = result1;
     }
 
-    public Integer getResult2(){
+    public BigDecimal getResult2(){
         return result2;
     }
-    public void setResult2(Integer result2){
+    public void setResult2(BigDecimal result2){
         this.result2 = result2;
     }
     public Integer getnTh(){
